@@ -1,0 +1,59 @@
+<!DOCTYPE html><html>
+    <head>
+        <meta charset = "UTF-8"/>
+        <meta name = "viewport" 
+        content="width=device-width, initial-scale=1.0"/>
+        <title>
+        </title>
+        <link rel="stylesheet" href="style.css"/>
+        <script src = "script.js" defer></script>
+    </head>
+    <body>
+        <h1>Click the button to find out how long it will take to get to a certain date</h1>
+            <button onclick="setDate()">Time to date calculator</button>
+        <p id="demo"></p>
+        <div class = "timer">
+            <div class="counter">
+                <p class = "big-text"id="days">00</p>
+                <span>Days</span>
+            </div>
+            <div class="counter">
+                <p class = "big-text" id="hours">00</p>
+                <span>Hours</span>
+            </div>
+            <div class="counter">
+                <p class = "big-text" id="mins">00</p>
+                <span>Minutes</span>
+            </div>
+            <div class="counter">
+                <p class = "big-text" id="seconds">00</p>
+                <span>Seconds</span>
+            </div>
+        </div>
+        <br>
+        <div class = "buttons">
+            <h1>Click the button to set a timer</h1>
+                <button onclick="setTimer()">Set Timer</button>
+            <p id="demo2"></p>
+            <div class = "interactiveTimer">
+                <div class="counterINT">
+                    <p class = "big-text" id="hoursINT">00</p>
+                    <span>Hours</span>
+                </div>
+                <div class="counterINT">
+                    <p class = "big-text" id="minsINT">00</p>
+                    <span>Minutes</span>
+                </div>
+                <div class="counterINT">
+                    <p class = "big-text" id="secondsINT">00</p>
+                    <span>Seconds</span>
+                </div>
+            </div>
+            <h1>Click the button to reset the timer</h1>
+                <button onclick="resetTimer()">Reset Timer</button>
+            <p id="demo2"></p>
+            <br>
+        </div>
+        
+    </body>
+</html>
