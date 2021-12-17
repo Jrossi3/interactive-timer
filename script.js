@@ -29,7 +29,7 @@ function setDate() {
                 hoursExtra = '0' + hours-1;
             }
             else {
-                hoursExtra = hours - 1;
+                hoursExtra = hours;
             }
             console.log(daysExtra, hoursExtra, minsExtra, secondsExtra);
             days1.innerHTML = daysExtra;
