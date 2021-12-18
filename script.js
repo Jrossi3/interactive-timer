@@ -3,13 +3,15 @@ const days1 = document.getElementById('days');
 const hours1 = document.getElementById('hours');
 const mins1 = document.getElementById('mins');
 const seconds1 = document.getElementById('seconds');
+dateReseter1 = false;
+var person;
 
 function setDate() {
-    var person = prompt("Please enter a date after today in the form of 'month day year'", "Jan 1 2022");
+    person = prompt("Please enter a date after today in the form of 'month day year'", "Jan 1 2022");
     if (person != null) {
         date = person;
         timeToDate();
-        setInterval(timeToDate, 1000);
+        var d = setInterval(timeToDate, 1000);
         function timeToDate() {
             const designatedDate = new Date(date);
             const currentDate = new Date();
@@ -31,17 +33,40 @@ function setDate() {
             else {
                 hoursExtra = hours;
             }
-            console.log(daysExtra, hoursExtra, minsExtra, secondsExtra);
-            days1.innerHTML = daysExtra;
-            hours1.innerHTML = hoursExtra;
-            mins1.innerHTML = minsExtra;
-            seconds1.innerHTML = secondsExtra;
             if (days <= 0 && hours <= 0 && mins <= 0 && seconds <= 0) {
                 alert("Date Reached!");
                 clearInterval(d);
                 return;
             }
+            if (dateReseter1) {
+                clearInterval(d);
+                console.clear();
+                daysExtra = 0;
+                secondsExtra = 0;
+                minsExtra = 0;
+                hoursExtra = 0;
+                console.log(daysExtra, hoursExtra, minsExtra, secondsExtra);
+                days1.innerHTML = "00";
+                hours1.innerHTML = "00";
+                mins1.innerHTML = "00";
+                seconds1.innerHTML = "00";
+                alert("Date Cleared!");
+                dateReseter1 = false;
+                return;
+            }
+            console.log(daysExtra, hoursExtra, minsExtra, secondsExtra);
+            days1.innerHTML = daysExtra;
+            hours1.innerHTML = hoursExtra;
+            mins1.innerHTML = minsExtra;
+            seconds1.innerHTML = secondsExtra;
         }
+    }
+}
+
+function resetDate() {
+    if (person != null) {
+        dateReseter1 = true;
+        person = null;
     }
 }
 
@@ -92,7 +117,7 @@ function setTimer() {
         minsTimer.innerHTML = minsExtra;
         secondsTimer.innerHTML = secondsExtra;
         // Involves the end portion
-        if (reseter == true) {
+        if (reseter) {
             clearInterval(d);
             console.clear();
             secondsExtra = 0;
@@ -118,5 +143,10 @@ function setTimer() {
 }
 
 function resetTimer() {
-    reseter = true;
+    if (hoursHelp > 0 || minsHelp > 0 || secondsHelp > 0) {
+        reseter = true;
+        hoursHelp = 0;
+        minsHelp = 0;
+        secondsHelp = 0;
+    }
 }
