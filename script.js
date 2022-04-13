@@ -81,7 +81,6 @@ var resetCounter = 0;
 var reseter;
 reseter = false;
 resetCounter = -1;
-const music = new Audio('audio.wav');
 
 const hoursTimer = document.getElementById('hoursINT');
 const minsTimer = document.getElementById('minsINT');
@@ -134,7 +133,6 @@ function setTimer() {
         }
         // Involves the end portion
         if (hours <= 0 && mins <= 0 && seconds <= 0) {
-            music.play();
             clearInterval(d);
             console.clear();
             alert("Timer Done!");
@@ -142,6 +140,10 @@ function setTimer() {
         }
     }
 }
+
+setTimeout(function() {
+    //your code to be executed after 1 second
+  }, 5000);
 
 function resetTimer() {
     if (hoursHelp > 0 || minsHelp > 0 || secondsHelp > 0) {
