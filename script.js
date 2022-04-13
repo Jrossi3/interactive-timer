@@ -88,8 +88,8 @@ const secondsTimer = document.getElementById('secondsINT');
 
 function setTimer() {
     resetCounter = resetCounter + 1;
-    var hours = prompt("Please enter the number of hours you would like to time", "3");
-    var mins = prompt("Please enter the number of minutes you would like to time", "3")
+    var hours = prompt("Please enter the number of hours you would like to time", "1");
+    var mins = prompt("Please enter the number of minutes you would like to time", "2")
     var seconds = prompt("Please enter the number of seconds you would like to time", "3")
     if (hours != null || mins != null || seconds != null) {
         hoursHelp = hours;
@@ -140,10 +140,6 @@ function setTimer() {
         }
     }
 }
-
-setTimeout(function() {
-    //your code to be executed after 1 second
-  }, 5000);
 
 function resetTimer() {
     if (hoursHelp > 0 || minsHelp > 0 || secondsHelp > 0) {
