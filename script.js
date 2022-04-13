@@ -7,7 +7,7 @@ dateReseter1 = false;
 var person;
 
 function setDate() {
-    person = prompt("Please enter a date after today in the form of 'month day year'", "Jan 1 2022");
+    person = prompt("Please enter a date after today in the form of 'month day year'", "Jan 1 2024");
     if (person != null) {
         date = person;
         timeToDate();
@@ -18,17 +18,18 @@ function setDate() {
             const totalSeconds = (designatedDate - currentDate) / 1000;
             const days = Math.floor(totalSeconds/24/3600);
             const hours = Math.floor(((totalSeconds / 3600 / 24) - days) * 24);
+            console.log(hours)
             const mins = Math.floor(((((totalSeconds / 3600 / 24) - days) * 24) - hours) * 60);
             const seconds = Math.floor(((((((totalSeconds / 3600 / 24) - days) * 24) - hours) * 60) - mins) * 60);
             let daysExtra = (days < 0) ? 0: days;
             let secondsExtra = (seconds < 10) ? ('0' + seconds): seconds;
             let minsExtra = (mins < 10) ? ('0' + mins): mins;
             let hoursExtra;
-            if (hours - 1 <= 0) {
+            if (hours - 1 < 0) {
                 hoursExtra = 0;
             }
-            else if (hours < 10) {
-                hoursExtra = '0' + hours-1;
+            else if (hours < 10 && days > 0) {
+                hoursExtra = '0' + hours - 1;
             }
             else {
                 hoursExtra = hours;
