@@ -44,22 +44,22 @@ function setDate() {
                 document.location.reload(true)
                 return;
             }
-            // if (dateReseter1) {
-            //     clearInterval(d);
-            //     console.clear();
-            //     daysExtra = 0;
-            //     secondsExtra = 0;
-            //     minsExtra = 0;
-            //     hoursExtra = 0;
-            //     console.log(daysExtra, hoursExtra, minsExtra, secondsExtra);
-            //     days1.innerHTML = "00";
-            //     hours1.innerHTML = "00";
-            //     mins1.innerHTML = "00";
-            //     seconds1.innerHTML = "00";
-            //     alert("Date Cleared!");
-            //     dateReseter1 = false;
-            //     return;
-            // }
+            if (dateReseter1) {
+                clearInterval(d);
+                console.clear();
+                daysExtra = 0;
+                secondsExtra = 0;
+                minsExtra = 0;
+                hoursExtra = 0;
+                console.log(daysExtra, hoursExtra, minsExtra, secondsExtra);
+                days1.innerHTML = "00";
+                hours1.innerHTML = "00";
+                mins1.innerHTML = "00";
+                seconds1.innerHTML = "00";
+                alert("Date Cleared!");
+                dateReseter1 = false;
+                return;
+            }
             console.log(daysExtra, hoursExtra, minsExtra, secondsExtra, dateReseter1);
             days1.innerHTML = daysExtra;
             hours1.innerHTML = hoursExtra;
@@ -73,8 +73,8 @@ function resetDate() {
     if (person != null) {
         dateReseter1 = true;
         person = null;
-        document.location.reload(true)
-        alert("Date Cleared!");
+        // document.location.reload(true)
+        // alert("Date Cleared!");
     }
 }
 
