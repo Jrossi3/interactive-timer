@@ -18,7 +18,6 @@ function setDate() {
             const totalSeconds = (designatedDate - currentDate) / 1000;
             const days = Math.floor(totalSeconds/24/3600);
             const hours = Math.floor(((totalSeconds / 3600 / 24) - days) * 24);
-            console.log(hours)
             const mins = Math.floor(((((totalSeconds / 3600 / 24) - days) * 24) - hours) * 60);
             const seconds = Math.floor(((((((totalSeconds / 3600 / 24) - days) * 24) - hours) * 60) - mins) * 60);
             let daysExtra = (days < 0) ? 0: days;
@@ -39,23 +38,29 @@ function setDate() {
                 clearInterval(d);
                 return;
             }
-            if (dateReseter1) {
+            else if (totalSeconds <= 0){
+                alert("Please enter a date after the current period.");
                 clearInterval(d);
-                console.clear();
-                daysExtra = 0;
-                secondsExtra = 0;
-                minsExtra = 0;
-                hoursExtra = 0;
-                console.log(daysExtra, hoursExtra, minsExtra, secondsExtra);
-                days1.innerHTML = "00";
-                hours1.innerHTML = "00";
-                mins1.innerHTML = "00";
-                seconds1.innerHTML = "00";
-                alert("Date Cleared!");
-                dateReseter1 = false;
+                document.location.reload(true)
                 return;
             }
-            console.log(daysExtra, hoursExtra, minsExtra, secondsExtra);
+            // if (dateReseter1) {
+            //     clearInterval(d);
+            //     console.clear();
+            //     daysExtra = 0;
+            //     secondsExtra = 0;
+            //     minsExtra = 0;
+            //     hoursExtra = 0;
+            //     console.log(daysExtra, hoursExtra, minsExtra, secondsExtra);
+            //     days1.innerHTML = "00";
+            //     hours1.innerHTML = "00";
+            //     mins1.innerHTML = "00";
+            //     seconds1.innerHTML = "00";
+            //     alert("Date Cleared!");
+            //     dateReseter1 = false;
+            //     return;
+            // }
+            console.log(daysExtra, hoursExtra, minsExtra, secondsExtra, dateReseter1);
             days1.innerHTML = daysExtra;
             hours1.innerHTML = hoursExtra;
             mins1.innerHTML = minsExtra;
@@ -68,6 +73,8 @@ function resetDate() {
     if (person != null) {
         dateReseter1 = true;
         person = null;
+        document.location.reload(true)
+        alert("Date Cleared!");
     }
 }
 
